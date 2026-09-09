@@ -36,20 +36,11 @@ int isMirror(struct Node* root1, struct Node* root2)
             isMirror(root1->right, root2->left));
 }
 
-int isSymmetric(struct Node* root)
-{
-    if (root == NULL)
-        return 1;
 
-    return isMirror(root->left, root->right);
-}
 
 int main()
 {
     struct Node* root;
-
-    
-
     root = createNode(8);
 
     root->left = createNode(5);
@@ -61,7 +52,7 @@ int main()
     root->right->left = createNode(6);
     root->right->right = createNode(3);
 
-    if (isSymmetric(root))
+    if (isMirror(root->left, root->right))
         printf("Given tree is symmetric");
     else
         printf("Given tree is not symmetric");
